@@ -64,15 +64,24 @@ Note that if you ever want to change the decoding type being used, you can call 
 If you are looking for file handling without encoding and decoding, refer to the '*Using Basic File Handling*' section below. \
 Krypton's primary use is in handling files that have been encoded using one of five methods: ASCII, Latin1, Unicode, UTF-8 or UTF-32. It is assumed you know what type of encoding was used in an already encrypted file. Please also note these forms of encryption are not entirely secure, and can be read by programs using Krypton or others utilising similar code. The primary purpose is to make data un-readable to the human eye.
 
-The `KFile` class is used to handle the encryption and decryption of files. You can access it by creating a new instance of the class. In C#, this is done with the following code: `KFile kf = new KFile();` \
-You now have access to Krypton's encrypted file handling capabilities.
+The `KFile` class is used to handle the encryption and decryption of files. You can access it by creating a new instance of the class. In C#, this is done with the following code: `KFile kf = new KFile();` You now have access to Krypton's encrypted file handling capabilities.
+
+<br />
+
+The `KFile` class contains two methods for writing to files:
+- `AppendToFile`
+- `OverwriteToFile`
+
+Both require three arguments in the following order:
+- The directory of the file you wish to write to,
+- The text you wish to write to the file,
+- A `KryptonType` enum configured to the desired encryption type.
 
 <br />
 
 ### Using Basic File Handling
 If you are looking for file handling with encoding and decoding, refer to the '*Using Encoded File Handling*' section above. \
-Krypton's basic file handling services are located in the `UFile` class. You can access it by creating a new instance of the `UFile` class. In C#, this is done with the following code: `UFile uf = new UFile();` \
-You now have access to Krypton's basic file handling classes.
+Krypton's basic file handling services are located in the `UFile` class. You can access it by creating a new instance of the `UFile` class. In C#, this is done with the following code: `UFile uf = new UFile();` You now have access to Krypton's basic file handling capabilities.
 
 <br />
 
@@ -81,8 +90,8 @@ The `UFile` class contains two methods for writing to files:
 - `OverwriteToFile`
 
 Both require two strings as arguments in the following order:
-- the directory of the file you wish to write to
-- the text you wish to write to the file
+1. The directory of the file you wish to write to,
+2. The text you wish to write to the file.
 
 The `AppendToFile` method will add text to the end of an existing file, leaving the rest of the file intact.
 The `OverwriteToFile` method will erase all text in a file and replace it with the text passed to the method.
