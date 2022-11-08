@@ -19,29 +19,31 @@ Please note that these forms of encryption are not extremely secure and should o
 ## How do I use Krypton?
 ### Setup
 If you are using Visual Studio, you can start by adding Krypton as a project reference. To do this:
-1. Go to *Project > Add Project Reference > Browse* then locate the DLL file on your computer.
+1. Go to `Project > Add Project Reference > Browse` then locate the DLL file on your computer.
 2. Click OK and wait for Visual Studio to add the reference.
-3. Finally, import the library to a file. If you are using C#, you can do this with the following code: `*using Vega.Krypton;*`
+3. Finally, import the library to a file. If you are using C#, you can do this with the following code: `using Vega.Krypton;`
 Krypton will now work in the file where it is imported.
 
 ### The '*KryptonType*' Enum
-To use any of Krypton's features, you will need to create an instance of the '*KryptonType*' enum and pass it in when creating any Krypton classes. To create and configure it, use the following steps:
+To use any of Krypton's encryption features, you will need to create an instance of the '*KryptonType*' enum and pass it in when creating most Krypton classes. To create and configure it, use the following steps:
 1. Complete the setup process outlined above. You won't have access to the '*KryptonType*' enum if you don't!
-2. Create a new instance of the '*KryptonType*' enum. You can do this with the following line in C#: `*KryptonType kt;*`.
+2. Create a new instance of the '*KryptonType*' enum. You can do this with the following line in C#: `KryptonType kt;`.
 3. Choose the type of encryption you wish to use. This can be done by assigning a value to the newly created enum instance. The values that can be assigned are:
   - A
   - L
   - U
   - U8
   - U32
+  
   Each corresponds to an encryption type, respectively:
   - ASCII
   - Latin1
   - Unicode
   - UTF-8
   - UTF-32
-  In C#, the value can be assigned with the following code: `*kt = KryptonType.A*`.
- The enum has now been set up.
+  
+  In C#, the value can be assigned with the following code: `kt = KryptonType.A`.
+The enum has now been set up.
 
 ### Using Encryption Services
 Krypton's encryption services are found in Krypton's namesake, the '*Krypton*' class. You can access them by following these steps:
@@ -59,12 +61,19 @@ Note that if you ever want to change the decoding type being used, you can call 
 
 ### Using Basic File Handling
 If you are looking for file handling with encoding and decoding, refer to the '*Using Encoded File Handling*' section below.
-Krypton's basic file handling services are located in the '*UFile*' class. You can access it by doing the following:
-1. Create a new '*KryptonType*' enum using the steps outlined above, configuring it to use the encoder/decoder you wish to use.
-2. Create a new '*UFile*' class instance, passing in the just created enum.
+Krypton's basic file handling services are located in the '*UFile*' class. You can access it by creating a new instance of the '*UFile*' class. In C#, this is done with the following code: `UFile uf = new UFile();`
 You now have access to Krypton's basic reading and writing classes.
 
-The '*UFile*' class contains two methods for writing to files.
+** The UFile Class **
+The '*UFile*' class contains two methods for writing to files:
+- AppendToFile
+- OverwriteToFile
+
+Both require two strings as arguments in the following order:
+- the directory of the file you wish to write to
+- the text you wish to write to the file
+
+
 
 
 ### Using Encoded File Handling
