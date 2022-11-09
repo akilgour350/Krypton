@@ -34,7 +34,7 @@ To use any of Krypton's encryption features, you will need to create an instance
 1. Complete the setup process outlined above. You won't have access to the `KryptonType` enum type if you don't!
 2. Create a new instance of the `KryptonType` enum. You can do this with the following line in C#: `KryptonType kt;`.
 3. Choose the type of encryption you wish to use. This can be done by assigning a value to the newly created enum instance. The values that can be assigned are: `A`, `L`, `U`, `U8` and `U32`. Each corresponded to an encryption type: ASCII, Latin1, Unicode, UTF-8 and UTF-32 respectivly.
-In C#, the value can be assigned with the following code: `kt = KryptonType.A`.
+In C#, the value can be assigned with the following code: `kt = KryptonType.A;`.
 
 The enum has now been set up.
 
@@ -51,10 +51,11 @@ Note that if you ever want to change the encoding type being used, you can call 
 <br />
 
 ### Using Decryption Services
-Similarly to the encryption services, Kryption's decryption services are found in Kryption's namesake, the `Krypton` class. You can access them by following these steps:
+Similarly to the encryption services, Kryption's decryption services are found in Krypton's namesake, the `Krypton` class. You can access them by following these steps:
 1. Create a new `KryptonType` enum using the above steps, configuring it for the encoder you wish to use.
 2. Create a new `Krypton` object. Make sure to pass in the `KryptonType` enum you just created.
 3. Call the `Decode` method. Make sure to pass a string as the argument. This method will return a string that has been decrypted using your previously selected format.
+
 Note that if you ever want to change the decoding type being used, you can call the `SwitchType` method, passing in a `KryptonType` enum of the new type you want to use.
 
 <br />
@@ -77,6 +78,23 @@ Both require three arguments in the following order:
 - The text you wish to write to the file,
 - A `KryptonType` enum configured to the desired encryption type.
 
+The `AppendToFile` method will encrypyt text, using the chosen encoder, then add it to the end of a file leaving the previous contents intact. \
+The `OverwriteToFile` method will erase all text in a file and replace it with the text passed to the method, encrypted using the chosen encoder.
+
+<br />
+
+The `KFile` class also contains two methods for reading encrypted files:
+- `ReadFromFile`
+- `ListFromFile`
+
+Both require two arguments in the following order:
+- The directory of the file you wish to read from,
+- A `KryptonType` enum configured to the desired decryption type.
+
+The `ReadFromFile` method will read in text from the specified file, decrypt it using the chosen decoder, then return a string of the decrypted text. \
+The `ListFromFile` method will read in text one line at a time into a List object of strings, decrypting each line, then return the List of lines. \
+Please note that both of these methods will return *null* if an error is encountered, so it is good practice to check the returned value before using it further on in your code. Details of any errors encountered will be printed to the console.
+
 <br />
 
 ### Using Basic File Handling
@@ -93,7 +111,7 @@ Both require two strings as arguments in the following order:
 1. The directory of the file you wish to write to,
 2. The text you wish to write to the file.
 
-The `AppendToFile` method will add text to the end of an existing file, leaving the rest of the file intact.
+The `AppendToFile` method will add text to the end of an existing file, leaving the rest of the file intact. \
 The `OverwriteToFile` method will erase all text in a file and replace it with the text passed to the method.
 
 <br />
@@ -105,5 +123,5 @@ The `UFile` class also contains two methods for reading from files:
 Both require only the directory of the file to be passed in.
 Note that if either method throws an error, its details will be written to the console and the method will return *null*. Therefore, it is good practice to check *null* has not been returned before attempting to use the output.
 
-The `ReadFromFile` method will return a string containing all of the text in the file within the given directory.
+The `ReadFromFile` method will return a string containing all of the text in the file within the given directory. \
 The `ListFromFile` method will return a List object of strings, where each item is a line in the file.
