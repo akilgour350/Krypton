@@ -14,6 +14,9 @@ Krypton offers basic encryption and decryption using the following formats avail
 - UTF-8
 - UTF-32
 
+## What Documentation is available?
+This README file contains the complete documentation for Krypton. However, if you are like me and find Markdown to be a little sore on the eyes, I'm working on adding a documentation page to my website. You can find it [here.](https://akilgour350.github.io) However, please note the page is still work-in-progress and therefore may be incomplete.
+
 Please note that these forms of encryption are not extremely secure and should only be used to stop a person from directly accessing a file's data.
 
 ---
