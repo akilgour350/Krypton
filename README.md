@@ -23,5 +23,5 @@ Please note that these are forms of encoding, not encryption! They are not fully
 The full documentation for Krypton is available over on my website. You can find it [here.](https://akilgour350.github.io/projects/krypton_documentation.html)
 
 ## Upcoming Features
-### Full Encryption
-Encoding is great in some situations, but full encryption is necessary for many circumstances. Encryption will be coming to Krypton soon, pending finding a way to handle keys and IVs securely.
+### NO UPCOMING FEATURES
+Krypton will not be updated, although the documentation will remain available. It will be replaced by Submerge soon.
